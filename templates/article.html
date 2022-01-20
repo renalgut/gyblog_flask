@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}
+{{ article.title }}
+{% endblock %}
+
+{% block body %}
+
+    <h3>Makale ismi: {{ article.title }}</h3>
+    <p>Yazar: {{ article.author }}</p>
+    <p>Oluşturulma Tarihi: {{ article.created_date }}</p>
+    <hr><br>
+    <p>Makale İçeriği: {{ article.content|safe }}</p>
+
+
+
+
+{% endblock %}

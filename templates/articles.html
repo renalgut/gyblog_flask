@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+Makaleler
+{% endblock %}
+{% block body %}
+
+    {% if not articles %}
+    <div class="alert alert-warning" role="alert">
+Veritabanında Makale Bulunmuyor...
+    </div>
+
+    {% else %}
+<form class="d-flex" action="/search" method="post">
+        <input type="search" placeholder="Search" aria-label="Ara" name="keyword">
+        <button  class="btn btn-outline-success" type="submit">Ara</button>
+</form>
+
+        <ul class="list-group">
+        {% for i in articles %}
+
+  <li class="list-group-item"><a href="/article/{{ i.id }}">{{ i.title }}</a></li>
+
+        {% endfor %}
+</ul>
+    {% endif %}
+
+
+
+{% endblock %}
